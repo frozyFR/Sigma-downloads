@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sigma Downloads - StreamEx TV & Soccer TV HD for Android TV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .app-card:focus {
+            outline: none;
+            border-color: #4CAF50;
+            transform: scale(1.02);
+        }
+
+        .app-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .version {
+            color: #aaa;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .file-size {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 3rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 0.5rem 0;
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn:hover, .download-btn:focus {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.3);
+            outline: none;
+        }
+
+        .warning {
+            background: rgba(255, 193, 7, 0.2);
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            text-align: left;
+            font-size: 0.8rem;
+            color: #ffc107;
+        }
+
+        .qr-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .url-box {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.8rem;
+            border-radius: 0.5rem;
+            font-family: monospace;
+            font-size: 1.2rem;
+            word-break: break-all;
+            margin: 1rem 0;
+        }
+
+        .instructions {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .instructions h3 {
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 180px;
+            text-align: center;
+        }
+
+        .step-number {
+            background: #4CAF50;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .highlight {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .sigma-badge {
+            display: inline-block;
+            background: rgba(255, 107, 107, 0.3);
+            padding: 0.2rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 1rem;
+            }
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>Σ Sigma Downloads</h1>
+            <p>Premium Android TV apps • No pop-ups • DPAD optimized</p>
+            <div class="sigma-badge">⚡ The ultimate TV app source</div>
+        </div>
+
+        <div class="apps-grid">
+            <!-- StreamEx TV Card -->
+            <div class="app-card" tabindex="0">
+                <div class="app-icon">📺</div>
+                <h2>Stream<strong style="text-transform: lowercase;">ex</strong> TV</h2>
+                <div class="version">Version 1.0.0</div>
+                <div class="file-size">File size: ~15 MB</div>
+                <a href="streamex-tv.apk" class="download-btn" download>
+                    ⬇️ Download APK
+                </a>
+                <div class="warning">
+                    🔒 No pop-ups • DPAD optimized • Fast streaming
+                </div>
+            </div>
+
+            <!-- Soccer TV HD Card -->
+            <div class="app-card" tabindex="0">
+                <div class="app-icon">⚽</div>
+                <h2>Soccer TV HD</h2>
+                <div class="version">Version 1.0.0</div>
+                <div class="file-size">File size: ~15 MB</div>
+                <a href="soccer-tv-hd.apk" class="download-btn" download>
+                    ⬇️ Download APK
+                </a>
+                <div class="warning">
+                    🏆 Live matches • HD quality • No ads
+                </div>
+            </div>
+        </div>
+
+        <!-- QR Code Section for Downloader App -->
+        <div class="qr-section">
+            <h3>📱 Install Directly on Your TV</h3>
+            <p>Use the <span class="highlight">Downloader</span> app from the Google Play Store</p>
+            <div class="url-box">
+                🔗 Enter this URL: <span id="pageUrl">https://yourusername.github.io/sigma-downloads/</span>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+                <strong>💡 Pro tip:</strong> Save this URL in Downloader for quick access
+            </p>
+        </div>
+
+        <div class="instructions">
+            <h3>📥 How to Install Using Downloader App</h3>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <p>Install <span class="highlight">Downloader</span> from Google Play Store on your TV</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <p>Open Downloader and enter the URL above</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <p>Click on your desired app and download</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <p>Install when prompted (allow unknown sources if needed)</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2024 Sigma Downloads • Stream<strong style="text-transform: lowercase;">ex</strong> TV • Soccer TV HD</p>
+            <p style="margin-top: 0.5rem;">🔒 No pop-ups • 📺 TV optimized • ⚡ Fast downloads</p>
+        </footer>
+    </div>
+
+    <script>
+        // Get current page URL
+        const currentUrl = window.location.href;
+        document.getElementById('pageUrl').innerText = currentUrl;
+
+        // Add DPAD navigation support for TV remotes
+        const cards = document.querySelectorAll('.app-card, .download-btn');
+        
+        cards.forEach((card, index) => {
+            if (card.classList.contains('app-card')) {
+                card.setAttribute('tabindex', '0');
+            }
+            
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    if (card.classList.contains('download-btn')) {
+                        window.location.href = card.getAttribute('href');
+                    } else {
+                        const downloadBtn = card.querySelector('.download-btn');
+                        if (downloadBtn) {
+                            downloadBtn.focus();
+                        }
+                    }
+                }
+            });
+        });
+
+        // Handle arrow key navigation between cards
+        document.addEventListener('keydown', (e) => {
+            const focusable = Array.from(document.querySelectorAll('.app-card, .download-btn'));
+            const currentFocus = document.activeElement;
+            const currentIdx = focusable.indexOf(currentFocus);
+            
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                if (currentIdx < focusable.length - 1) {
+                    focusable[currentIdx + 1].focus();
+                }
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                if (currentIdx > 0) {
+                    focusable[currentIdx - 1].focus();
+                }
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (currentFocus.classList.contains('app-card')) {
+                    const downloadBtn = currentFocus.querySelector('.download-btn');
+                    if (downloadBtn) downloadBtn.focus();
+                }
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (currentFocus.classList.contains('download-btn')) {
+                    const parentCard = currentFocus.closest('.app-card');
+                    if (parentCard) parentCard.focus();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
